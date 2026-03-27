@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Huffman Image Compression</title>
+</head>
+<body>
+
+<h2>Upload Image</h2>
+
+<form method="POST" enctype="multipart/form-data">
+    <input type="file" name="image" required>
+    <button type="submit">Compress</button>
+</form>
+
+{% if original %}
+    <h3>Original Image</h3>
+    <img src="{{ url_for('static', filename='uploads/' + original.split('/')[-1]) }}" width="300">
+
+    <h3>Reconstructed Image</h3>
+    <img src="{{ url_for('static', filename='outputs/reconstructed.jpg') }}" width="300">
+{% endif %}
+
+</body>
+</html>
